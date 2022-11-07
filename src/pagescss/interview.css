@@ -1,0 +1,20 @@
+body{
+    margin:0px;
+    padding: 20px;
+    
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+#interview{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    width:100%;
+    height:768px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('./images/background.png');
+  }
+ 

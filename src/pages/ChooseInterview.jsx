@@ -29,7 +29,6 @@ function ChooseInterview() {
       <div style={style.section}>
         <Box>
           <Grid container spacing={3} xs={0}>
-            <Grid item xs={4} md={4}>
               <Item
                 sx={{
                   height: 240,
@@ -39,8 +38,6 @@ function ChooseInterview() {
                 <h1>TECHNICAL ROUND</h1>
                 <Button variant="contained">Lets Begin</Button>
               </Item>
-            </Grid>
-            <Grid item xs={4} md={4}>
               <Item
                 sx={{
                   height: 240,
@@ -50,7 +47,6 @@ function ChooseInterview() {
                 <h1>HR ROUND</h1>
                 <Button variant="contained">Lets Begin</Button>
               </Item>
-            </Grid>
           </Grid>
         </Box>
       </div>
