@@ -1,0 +1,38 @@
+#domain{
+    padding: 0px 00px 0px 20px;
+    justify-content: center;
+    display: grid;
+    background-image: url('../images/background1.png');
+    width:100%;
+    height:633px;
+}
+.heading{
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 0px;
+    display: block;
+    margin-bottom: 0px;
+    margin-block-start: 0.67em;
+    margin-block-end: 0px;
+    font-size: 25px;
+    color: aliceblue;
+}
+#level{
+    padding: 60px 00px 0px 20px;
+    justify-content: center;
+    display: grid;
+    background-image: url('../images/background1.png');
+    width:100%;
+    height:640px;
+}
+.h6{
+    color: black;
+    font-size: 13px;
+    margin-top: 1;
+}
+.h6-1{
+    color: black;
+    font-size: 13px;
+    margin-bottom: 0;
+    margin-top: 0.5;
+}

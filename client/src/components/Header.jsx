@@ -1,8 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
+import "../index.css";
 
-import headerpic from "../images/Headerpic.png";
-import { padding } from "@mui/system";
 function Header() {
   return (
     <div className="class">
