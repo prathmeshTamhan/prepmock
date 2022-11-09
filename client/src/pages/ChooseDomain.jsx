@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 
-import "../pagescss/Domain.css";
+// import "../pagescss/Domain.css";
 
 function ChooseDomain() {
   const Item = styled(Paper)(({ theme }) => ({
