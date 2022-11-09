@@ -8,26 +8,30 @@ const bcrypt = require('bcryptjs')
 app.use(cors())
 app.use(express.json())
 
-const DB = 'mongodb+srv://prepmock:Hellojob%40123@user.ooe3zwk.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(DB, {
 
-    
-    useUnifiedTopology:true,
- 
-}).then(()=>{
-    console.log('Connection Establish')
-}).catch((err) => console.log(err))
+main().catch(err => console.log(err));
+
+async function main() {
+	await mongoose.connect('mongodb+srv://prepmock:Hellojob%40123@user.ooe3zwk.mongodb.net/?retryWrites=true&w=majority').then(() => console.log("DB COnnection Succesful"));
+}
+
+
 
 app.post('/register', async (req, res) => {
+	
 	console.log(req.body)
+
 	try {
 		const newPassword = await bcrypt.hash(req.body.password, 10)
-		await User.save({
+		const newUser = await User({
 			name: req.body.name,
 			email: req.body.email,
 			password: newPassword,
 		})
-		res.json({ status: 'ok' })
+
+		const user = await newUser.save()
+		res.json({ status: 'ok', user })
+
 	} catch (err) {
 		res.json({ status: 'error', error: 'Duplicate email' })
 	}
