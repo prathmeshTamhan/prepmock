@@ -33,7 +33,7 @@ app.post('/register', async (req, res) => {
 		res.json({ status: 'ok', user })
 
 	} catch (err) {
-		res.json({ status: 'error', error: 'Duplicate email' })
+		res.json({ status: 'error', error: 'Email Already Registered!' })
 	}
 })
 
