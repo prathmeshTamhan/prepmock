@@ -25,8 +25,7 @@ function Header() {
           with mentors, feature provide get interviewed by authorised mentors."
         </p>
         <a href="#" className="cv-btn">
-          {"   "}
-          Contact Us
+          {"Contact Us"}
         </a>
         {/* <img src={headerpic} id="headerpic" style={{ height: "100px" }} alt="/"></img> */}
       </div>
