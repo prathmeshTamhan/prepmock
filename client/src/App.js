@@ -10,14 +10,14 @@ import Chooselevel from "./pages/Chooselevel"
 
 function App() {
   return <div>
-   <Header/>
+   {/* <Header/>
   <Feature/>
   <Plans/>
-  <Footer/>
+  <Footer/> */}
 {/* <ChooseInterview/> */}
 {/* <ChooseDomain/> */}
 {/* <Chooselevel/> */}
-{/* <Login/> */}
+<Login/>
 {/* <Register/> */}
   </div>;
 }
