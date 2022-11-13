@@ -17,7 +17,7 @@ function App() {
 {/* <ChooseInterview/> */}
 {/* <ChooseDomain/> */}
 {/* <Chooselevel/> */}
-{/* <Login/> */}
+<Login/>
 {/* <Register/> */}
 <Start/>
   </div>;
