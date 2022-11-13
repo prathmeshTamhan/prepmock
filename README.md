@@ -1,4 +1,4 @@
-# prepMOCK: An Interview Preparation App
+# PrepMOCK: An Interview Preparation App
 <h1 style="font-size: 14px"> <b>At the Glance</b></h1>
 <p>1. prepMOCK provides 2 services: MOCK INTERVIEW PREPARATION, VIDEO CONFERENCING </br>
     2. App prepares the user for the actual interview scenario by providing various rounds conducted in an actual interview.</br>
