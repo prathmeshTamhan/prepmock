@@ -6,8 +6,7 @@ const cors = require('cors')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const dotenv = require("dotenv")
-
-const {CNSchema , DBMSSchema, OSSchema} = require('../models/que.model')
+const { CNSchema, DBMSSchema, OSSchema } = require('../models/que.model')
 
 router.post('/addQue', async (req, res) => {
 
@@ -61,9 +60,35 @@ router.post('/addQue', async (req, res) => {
 
 })
 
-router.get('/getQue' , async(req,res)=>{
+router.get('/getQue', async (req, res) => {
 
-    
+    const subject = req.body.subject
+    const difficultyLevel = req.body.difficultyLevel
+
+    console.log({subject ,difficultyLevel});
+
+    try {
+
+        if( subject === "CN"){
+            const queBank = await CNSchema.find({ difficultyLevel })
+            res.json(queBank)
+        }
+        else if ( subject === "DBMS" ){
+            const queBank = await DBMSSchema.find({ difficultyLevel })
+            res.json(queBank)
+        }
+        else if ( subject === "OS" ){
+            const queBank = await OSSchema.find({ difficultyLevel })
+            res.json(queBank)
+        }
+
+
+    } catch (e) {
+
+        console.log(e);
+        res.json(e)
+        
+    }
 
 })
 
