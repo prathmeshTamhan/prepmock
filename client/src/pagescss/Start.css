@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans&family=Public+Sans:wght@300&display=swap');
+#start-container{
+  max-width: 100%;
+  height: 641px;
+  background-image: url("../images/background1.png");
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+.body{
+    margin:0px;
+    padding: 0px;
+}
+#start-heading{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding-top: 170px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+}
+.please-start{
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+#start-button{
+width: 200px;
+height: 40px;
+background-color:#E8AA42;
+color:#231955;
+font-weight: 100;
+font-size: large;
+}

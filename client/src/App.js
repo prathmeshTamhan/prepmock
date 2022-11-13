@@ -7,7 +7,7 @@ import Register from "./pages/Register";
 import ChooseInterview  from "./pages/ChooseInterview";
 import ChooseDomain from "./pages/ChooseDomain";
 import Chooselevel from "./pages/Chooselevel"
-
+import Start from "./pages/Start";
 function App() {
   return <div>
    {/* <Header/>
@@ -19,6 +19,7 @@ function App() {
 {/* <Chooselevel/> */}
 <Login/>
 {/* <Register/> */}
+<Start/>
   </div>;
 }
 
