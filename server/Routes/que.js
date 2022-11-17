@@ -1,3 +1,4 @@
+//created an API (Insertion of question to database in done using postman)
 const express = require("express");
 const router = require("express").Router();
 const app = express();
@@ -7,6 +8,7 @@ const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 const { CNSchema, DBMSSchema, OSSchema, HRSchema } = require("../models/que.model");
 
+//an endpont to insert data into database
 router.post("/addQue", async (req, res) => {
   const CN = req.body.CN;
   const DBMS = req.body.DBMS;
@@ -14,7 +16,7 @@ router.post("/addQue", async (req, res) => {
   const HR = req.body.HR;
 
   console.log(CN);
-
+//Iterating over the number of questions put in postman and publishing it over database
   try {
     CN.forEach(async (element) => {
       const CNQue = await CNSchema({
@@ -62,6 +64,7 @@ router.post("/addQue", async (req, res) => {
   }
 });
 
+//an endpoint to retrieve the data from database
 router.get("/getQue", async (req, res) => {
   const subject = req.body.subject;
   const difficultyLevel = req.body.difficultyLevel;
