@@ -39,7 +39,7 @@ function Login() {
 		<div className="login-child">
 		<h1>Lets Begin</h1>
 		<h5>Start your Interview preparation journey with us!</h5>
-	<span>	<img src={image} id="image" ></img></span>
+	<span>	<img src={image} alt="vector" id="image" ></img></span>
 		
 	  </div>
       <div className="login-section">

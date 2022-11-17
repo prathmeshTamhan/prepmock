@@ -33,7 +33,6 @@ function ChooseDomain() {
             fontSize: 30,
             fontWeight: 10,
             paddingTop: 4,
-
             borderRadius: 4,
             color: "RGB(31,70,144)",
           }}
