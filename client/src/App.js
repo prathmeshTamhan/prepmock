@@ -8,18 +8,20 @@ import ChooseInterview  from "./pages/ChooseInterview";
 import ChooseDomain from "./pages/ChooseDomain";
 import Chooselevel from "./pages/Chooselevel"
 import Start from "./pages/Start";
+
 function App() {
   return <div>
    {/* <Header/>
-  <Feature/>
+  <Feature/> */}
   <Plans/>
-  <Footer/> */}
+  {/* <Footer/> */}
 {/* <ChooseInterview/> */}
 {/* <ChooseDomain/> */}
 {/* <Chooselevel/> */}
-<Login/>
+{/* <Login/> */}
 {/* <Register/> */}
-<Start/>
+{/* <Start/> */}
+
   </div>;
 }
 
