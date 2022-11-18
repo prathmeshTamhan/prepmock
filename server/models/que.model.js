@@ -1,7 +1,9 @@
+
+//created Schemas in which format data is manipulated and stored
 const mongoose = require('mongoose')
 
 const subjects = ['CN', 'DBMS', 'OS', 'HR']
-
+//schema for every subject with 3 parameters
 const CN = new mongoose.Schema(
     {
         difficultyLevel: { type: String },
