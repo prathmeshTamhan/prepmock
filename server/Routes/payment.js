@@ -13,15 +13,29 @@ router.get("/get-razorpay-key", (req, res) => {
 
 router.post("/create-order", async (req, res) => {
   try {
-    console.log("helo console");
+    console.log(req.body.amount);
+
     const instance = new Razorpay({
       key_id: process.env.RAZORPAY_KEY_ID,
       key_secret: process.env.RAZORPAY_SECRET,
     });
+
+    console.log(instance);
+
     const options = {
       amount: req.body.amount,
       currency: "INR",
     };
+
+    // const newUser = await User({
+		// 	name: req.body.name,
+		// 	email: req.body.email,
+		// 	college:req.body.college,
+		// 	password: newPassword,
+		// })
+
+		// const user = await newUser.save()
+
     const order = await instance.orders.create(options);
     if (!order) return res.status(500).send("Some error occured");
     res.send(order);

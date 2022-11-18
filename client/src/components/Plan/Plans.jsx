@@ -7,84 +7,64 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
+
 function Services() {
   const [loading, setLoading] = useState(false);
   const [orderAmount, setOrderAmount] = useState(0);
 
-  function displayRazorpay() {
+  const loadScript = (src) => {
+    return new Promise((resovle) => {
+      const script = document.createElement("script");
+      script.src = src;
+
+      script.onload = () => {
+        resovle(true);
+      };
+
+      script.onerror = () => {
+        resovle(false);
+      };
+
+      document.body.appendChild(script);
+    });
+  };
+
+
+  async function displayRazorpay(amount) {
     const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.onerror = () => {
-      alert("Razorpay SDK failed to load. Are you online?");
+    // script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    // script.onerror = () => {
+    //   alert("Razorpay SDK failed to load. Are you online?");
+    // };
+
+    const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
+
+    if (!res) {
+      alert("You are offline... Failed to load Razorpay SDK");
+      return;
+    }
+
+    const options = {
+      key: "rzp_test_i5PaivJMK8umIX",
+      currency: "INR",
+      amount: amount,
+      name: "PrepMock",
+      description: "Thanks for purchasing",
+      image:
+        "https://mern-blog-akky.herokuapp.com/static/media/logo.8c649bfa.png",
+
+      handler: function (response) {
+        alert(response.razorpay_payment_id);
+        alert("Payment Successfully");
+      },
+      prefill: {
+        name: "PrepMock",
+      },
     };
-    script.onload = async () => {
-      try {
 
-        setLoading(true);
-      
-        const result = await axios.post(
-          "http://localhost:1337/payment/create-order",
-          {
-            amount:  document.getElementById("999").value,
-          }
-        );
-        const { amount, id: order_id, currency } = result.data;
-        const {
-          data: { key: razorpayKey },
-        } = await axios.get("/get-razorpay-key");
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open(); };
 
-        const options = {
-          key: razorpayKey,
-          amount: amount.toString(),
-          currency: currency,
-          name: "example name",
-          description: "example transaction",
-          order_id: order_id,
-          handler: async function (response) {
-            const result = await axios.post("/pay-order", {
-              amount: amount,
-              razorpayPaymentId: response.razorpay_payment_id,
-              razorpayOrderId: response.razorpay_order_id,
-              razorpaySignature: response.razorpay_signature,
-            });
-            alert(result.data.msg);
-            // fetchOrders();
-          },
-          prefill: {
-            name: "example name",
-            email: "email@example.com",
-            contact: "111111",
-          },
-          notes: {
-            address: "example address",
-          },
-          theme: {
-            color: "#3D11B6",
-          },
-        };
-        setLoading(false);
-        const paymentObject = new window.Razorpay(options);
-        paymentObject.open();
-
-        //if failed
-        //         var rzp1 = new Razorpay(options);
-        // rzp1.on('payment.failed', function (response){
-        //         alert(response.error.code);
-        //         alert(response.error.description);
-        //         alert(response.error.source);
-        //         alert(response.error.step);
-        //         alert(response.error.reason);
-        //         alert(response.error.metadata.order_id);
-        //         alert(response.error.metadata.payment_id);
-
-        // });
-      } catch (error) {
-        alert(error);
-        setLoading(false);
-      }
-    };
-    document.body.appendChild(script);
-  }
   return (
     <div>
       <h2 id="Headingplans">Our plans</h2>
