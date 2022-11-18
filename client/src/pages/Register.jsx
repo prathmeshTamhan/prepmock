@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 // import { useNavigate } from 'react-router-dom'
 import Button from "@mui/material/Button";
 import image from "../images/feature_1.png";

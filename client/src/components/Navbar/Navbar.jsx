@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import logo from '../images/logo.png'
+import logo from '../../images/logo.png'
 function Navbar() {
     const[nav,setnav]= useState(false);
     const changeBachground=()=>{

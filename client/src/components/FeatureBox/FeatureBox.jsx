@@ -1,6 +1,4 @@
 import React from "react";
-
-import "../index.css";
 import Button from "@mui/material/Button";
 function FeatureBox(props) {
   return (

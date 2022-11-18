@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import "../index.css";
 import axios from "axios";
-import feature from "../images/feature_1.png";
+import feature from "../../images/feature_1.png";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";

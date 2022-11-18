@@ -3,8 +3,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Container from "@mui/material/Container";
-import logo from "../images/logo.png";
-import "../index.css";
+import logo from "../../images/logo.png";
 function Footer() {
   return (
     <div className="main-footer">

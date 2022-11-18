@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import image from "../images/feature_1.png";
 import Button from "@mui/material/Button";
 import Link from '@mui/material/Link';
