@@ -16,7 +16,6 @@ function Navbar() {
     const navigate = useNavigate()
 
     const user = useSelector(state=>state.User)
-    console.log(user)
 
     const[nav,setnav]= useState(false);
     const changeBachground=()=>{
@@ -42,7 +41,7 @@ function Navbar() {
                 </span>
             </label>
             <ul>
-                <li><a className='active'>Home</a></li>
+                <li><Link to='/' className='active'>Home</Link></li>
                 <li><a >Plans</a></li>
                 <li><a >Contact Us</a></li>
                 <li>{ !user.isAuthenticated ? <Link to='/login' > Login </Link> : <Link to='/login' onClick={()=>{       setIsLogged({isAuthenticated:false , accessToken : ""})}}> Logout </Link>}</li>

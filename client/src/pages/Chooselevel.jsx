@@ -5,10 +5,14 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router";
 
 import "../pagescss/Domain.css";
 
 function Chooselevel() {
+
+  const navigate = useNavigate()
+
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -39,7 +43,10 @@ function Chooselevel() {
           }}
         >
           {"Beginner                                       "}
-          <Button variant="contained">LetsGo</Button>
+          <Button variant="contained" onClick={() => {
+            const interviewAndSub = (window.location.href).split('?')[1]
+            navigate(`/start?${interviewAndSub}&level=beginner`)
+          }}  >LetsGo</Button>
         </Item>
         <Item
           sx={{
@@ -54,7 +61,10 @@ function Chooselevel() {
           }}
         >
           {"Intermediate  "}
-          <Button variant="contained">LetsGo</Button>
+          <Button variant="contained" onClick={() => {
+            const interviewAndSub = (window.location.href).split('?')[1]
+            navigate(`/start?${interviewAndSub}&level=intermediate`)
+          }}>LetsGo</Button>
         </Item>
         <Item
           sx={{
@@ -69,7 +79,10 @@ function Chooselevel() {
           }}
         >
           {"Advance     "}
-          <Button variant="contained">LetsGo</Button>
+          <Button variant="contained" onClick={() => {
+            const interviewAndSub = (window.location.href).split('?')[1]
+            navigate(`/start?${interviewAndSub}&level=advance`)
+          }}>LetsGo</Button>
         </Item>
       </Stack>
     </div>
