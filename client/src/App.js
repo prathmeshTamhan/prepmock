@@ -12,7 +12,6 @@ import Start from './pages/Start'
 function App() {
   return (
     <>
-      <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<HomePage/>} />
           <Route exact path="/login" element={<Login/>} />
@@ -23,7 +22,6 @@ function App() {
           <Route exact path="/instructions" element={ <Instructions/>} />
           <Route exact path="/Start" element={ <Start/>} />
         </Routes>
-      </BrowserRouter>
     </>
   )
 }

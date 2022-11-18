@@ -34,7 +34,7 @@ router.post('/register', async (req, res) => {
 		})
 
 		const user = await newUser.save()
-		res.json({ status: 'ok', user })
+		res.json({ status: 'ok', msg: "Registration Successfull",  user })
 
 	} catch (err) {
 		res.json({ status: 'error', error: 'Email Already Registered!' })
@@ -42,6 +42,8 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+
+	
 	const user = await User.findOne({
 		email: req.body.email,
 	})

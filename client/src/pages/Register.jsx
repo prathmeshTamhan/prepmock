@@ -6,10 +6,12 @@ import Button from "@mui/material/Button";
 import image from "../images/feature_1.png";
 import "../pagescss/signinlogin.css";
 import axios from 'axios'
+import { useNavigate } from "react-router";
 
 // import EmailIcon from '@mui/icons-material/Email';
 function Register(event) {
 
+  const navigate = useNavigate()
 
   async function registerUser() {
 
@@ -31,6 +33,7 @@ function Register(event) {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         alert(response.data.msg)
+        navigate('/login')
         
       })
       .catch(function (error) {

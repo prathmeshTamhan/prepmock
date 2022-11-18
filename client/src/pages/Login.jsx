@@ -4,66 +4,91 @@ import image from "../images/feature_1.png";
 import Button from "@mui/material/Button";
 import Link from '@mui/material/Link';
 import "../pagescss/signinlogin.css";
+import axios from 'axios'
+import { setIsLogged } from '../../src/States/action-creators'
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { acitionCreators } from '../../src/States/index'
+import { useNavigate } from 'react-router-dom'
+
 function Login() {
+
+  const dispatch = useDispatch()
+  const { setIsLogged } = bindActionCreators(acitionCreators, dispatch)
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function loginUser(event) {
-    event.preventDefault();
 
-    const response = await fetch("http://localhost:1337/login", {
-      method: "POST",
+
+  async function loginUser() {
+
+    const loginEmail = document.getElementById('login-email')
+    const loginPassword = document.getElementById('login-password')
+
+    const logindData = { email: loginEmail, password: loginPassword }
+
+    var config = {
+      method: 'post',
+      url: 'localhost:6969/auth/verifyOtp',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+      data: logindData
+    };
 
-    const data = await response.json();
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
-    if (data.user) {
-      localStorage.setItem("token", data.user);
-      alert("Login successful");
-      window.location.href = "/ChooseInterview";
-    } else {
-      alert("Please check your username and password");
-    }
+
+    // if (data.user) {
+    //   localStorage.setItem("token", data.user);
+    //   alert("Login successful");
+    //   // setIsLogged(response.data)
+    //   window.location.href = "/ChooseInterview";
+    // } else {
+    //   alert("Please check your username and password");
+    // }
+    
   }
 
   return (
     <div className="container">
-		<Navbar/>
-		<div className="login-child">
-		<h1>Lets Begin</h1>
-		<h5>Start your Interview preparation journey with us!</h5>
-	<span>	<img src={image} alt="vector" id="image" ></img></span>
-		
-	  </div>
+      <Navbar />
+      <div className="login-child">
+        <h1>Lets Begin</h1>
+        <h5>Start your Interview preparation journey with us!</h5>
+        <span>	<img src={image} alt="vector" id="image" ></img></span>
+
+      </div>
       <div className="login-section">
         <h1>Login</h1>
-        <form onSubmit={loginUser}>
+        <div>
           <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            id='login-email'
+            value=""
             type="email"
             placeholder="Email"
           />
           <br />
           <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            id='login-password'
+            value=""
             type="password"
             placeholder="Password"
           />
           <br />
-		  <Button variant="contained"  type="submit" value="Login" >Log in</Button>
-        </form>
-		<h6>Don't have an account?  <Link href="#" color="inherit">
-        {'Sign Up'}
-      </Link></h6>
+          <Button variant="contained" type="submit" value="Login" onClick={() => { loginUser() }} >Log in</Button>
+        </div>
+        <h6>Don't have an account?  <Link href="#" color="inherit">
+          {'Sign Up'}
+        </Link></h6>
       </div>
     </div>
   );
