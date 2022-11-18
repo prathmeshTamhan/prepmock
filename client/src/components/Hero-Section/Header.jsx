@@ -4,7 +4,6 @@ import Navbar from "../Navbar/Navbar";
 function Header() {
   return (
     <div className="class">
-      <Navbar />
       <div className="name">
         <h1>
           What is
