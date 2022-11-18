@@ -1,6 +1,5 @@
 const initialState = {
     isAuthenticated:false,
-    data:{},
     accessToken:""
 }
 

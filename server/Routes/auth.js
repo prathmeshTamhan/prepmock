@@ -43,7 +43,8 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
 
-	
+	console.log(req.body);
+
 	const user = await User.findOne({
 		email: req.body.email,
 	})
@@ -66,9 +67,9 @@ router.post('/login', async (req, res) => {
 			'secret123'
 		)
 
-		return res.json({ status: 'ok', user: token })
+		return res.json({ isAuthenticated: true, accessToken: token })
 	} else {
-		return res.json({ status: 'error', user: false })
+		return res.json({ isAuthenticated: false, accessToken:""})
 	}
 })
 

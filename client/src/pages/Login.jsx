@@ -20,27 +20,33 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
+  // const user = useSelector(state=>state.User)
+  // console.log(user)
 
   async function loginUser() {
 
-    const loginEmail = document.getElementById('login-email')
-    const loginPassword = document.getElementById('login-password')
+    const loginEmail = document.getElementById('login-email').value
+    const loginPassword = document.getElementById('login-password').value
 
-    const logindData = { email: loginEmail, password: loginPassword }
+    const loginData = { email: loginEmail, password: loginPassword }
+
+    console.log(loginData);
 
     var config = {
       method: 'post',
-      url: 'localhost:6969/auth/verifyOtp',
+      url: 'http://localhost:1337/auth/login',
       headers: {
         'Content-Type': 'application/json'
       },
-      data: logindData
+      data: loginData
     };
 
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+        setIsLogged(response.data)
+        alert("Login Successfull")
+        navigate('/chooseDomain')
       })
       .catch(function (error) {
         console.log(error);
@@ -55,7 +61,7 @@ function Login() {
     // } else {
     //   alert("Please check your username and password");
     // }
-    
+
   }
 
   return (
@@ -72,14 +78,14 @@ function Login() {
         <div>
           <input
             id='login-email'
-            value=""
+            defaultValue=""
             type="email"
             placeholder="Email"
           />
           <br />
           <input
             id='login-password'
-            value=""
+            defaultValue=""
             type="password"
             placeholder="Password"
           />
