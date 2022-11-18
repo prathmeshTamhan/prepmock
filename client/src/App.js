@@ -8,12 +8,14 @@ import ChooseInterview  from "./pages/ChooseInterview";
 import ChooseDomain from "./pages/ChooseDomain";
 import Chooselevel from "./pages/Chooselevel"
 import Start from "./pages/Start";
+import MockInterview from "./pages/MockInterview"
+
 
 function App() {
   return <div>
    {/* <Header/>
   <Feature/> */}
-  <Plans/>
+  {/* <Plans/> */}
   {/* <Footer/> */}
 {/* <ChooseInterview/> */}
 {/* <ChooseDomain/> */}
@@ -21,7 +23,7 @@ function App() {
 {/* <Login/> */}
 {/* <Register/> */}
 {/* <Start/> */}
-
+<MockInterview/>
   </div>;
 }
 
