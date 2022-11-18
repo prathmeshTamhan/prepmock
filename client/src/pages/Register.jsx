@@ -5,87 +5,89 @@ import Navbar from "../components/Navbar/Navbar";
 import Button from "@mui/material/Button";
 import image from "../images/feature_1.png";
 import "../pagescss/signinlogin.css";
+import axios from 'axios'
 
 // import EmailIcon from '@mui/icons-material/Email';
-function Register() {
-  // const history = useNavigate()
+function Register(event) {
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [college, setCollege] = useState("");
 
-  const [password, setPassword] = useState("");
+  async function registerUser() {
 
-  async function registerUser(event) {
-    event.preventDefault();
+    const name = document.getElementById('name').value
+    const email = document.getElementById('email').value
+    const college = document.getElementById('college').value
+    const password = document.getElementById('password').value
 
-    const response = await fetch("http://localhost:1337/register", {
-      method: "POST",
+    var config = {
+      method: 'post',
+      url: 'http://localhost:1337/auth/register',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        name,
-        email,
-        college,
-        password,
-      }),
-    });
+      data: { name, email, college, password }
+    };
 
-    const data = await response.json();
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        alert(response.data.msg)
+        
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
-    if (data.status === "ok") {
-      // history.push('/login')
-    }
+
+
+
   }
 
   return (
     <div className="container">
-		<Navbar/>
-		<div className="register-child">
-		<h1>PREPMOCK</h1>
-		<h5>Start your Interview preparation journey with us!</h5>
-	<span>	<img src={image} alt="'vector'" id="image" ></img></span>
-		
-	  </div>
+      <Navbar />
+      <div className="register-child">
+        <h1>PREPMOCK</h1>
+        <h5>Start your Interview preparation journey with us!</h5>
+        <span>	<img src={image} alt="'vector'" id="image" ></img></span>
+
+      </div>
       <div className="register-section">
         <h1>Registration</h1>
-        <form onSubmit={registerUser}>
-		
+        <div>
           <input
-            value={ name}
-            onChange={(e) => setName(e.target.value)}
+            id='name'
+            defaultValue=""
             type="text"
-            placeholder= "Name"
-			
-          /> 
+            placeholder="Name"
+
+          />
           <br />
           <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            id='email'
+            defaultValue=""
             type="email"
             placeholder="Email"
           />
           <br />
           <input
-            value={college}
-            onChange={(e) => setCollege(e.target.value)}
+            id='college'
+            defaultValue=""
             type="text"
             placeholder="College/University Name"
           />
           <br />
           <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            id='password'
+            defaultValue=""
             type="password"
             placeholder="Password"
           />
           <br />
-          <Button variant="contained"  type="submit" value="Register" >Register</Button>
-		  {/* <input type="submit" value="Register" /> */}
-        </form>
+          <Button variant="contained" type="submit" value="Register" onClick={() => { registerUser() }} >Register</Button>
+          {/* <input type="submit" value="Register" /> */}
+        </div>
       </div>
-	  
+
     </div>
   );
 }
