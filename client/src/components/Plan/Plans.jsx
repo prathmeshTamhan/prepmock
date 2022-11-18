@@ -47,13 +47,14 @@ function Services() {
     const options = {
       key: "rzp_test_i5PaivJMK8umIX",
       currency: "INR",
-      amount: amount,
+      amount: amount * 100,
       name: "PrepMock",
       description: "Thanks for purchasing",
       image:
         "https://mern-blog-akky.herokuapp.com/static/media/logo.8c649bfa.png",
 
       handler: function (response) {
+        console.log(response.razorpay_payment_id);
         alert(response.razorpay_payment_id);
         alert("Payment Successfully");
       },
