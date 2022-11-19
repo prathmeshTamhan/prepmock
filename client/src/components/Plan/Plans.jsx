@@ -64,13 +64,14 @@ function Services() {
     };
 
     const paymentObject = new window.Razorpay(options);
-    paymentObject.open(); };
+    paymentObject.open();
+  };
 
   return (
-    <div>
+    <section className=" plans-section">
       <h2 id="Headingplans">Our plans</h2>
       <div id="plans">
-        <Card sx={{ maxWidth: 300, height: 230 }}>
+        <Card sx={{ width: '30%', height: 230 }}>
           <CardMedia
             component="feature"
             height="140"
@@ -93,7 +94,7 @@ function Services() {
             <Button variant="contained">Buy 299/-</Button>
           </CardActions>
         </Card>
-        <Card sx={{ maxWidth: 300, height: 230 }}>
+        <Card sx={{ width: '30%', height: 230 }}>
           <CardActionArea>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -110,7 +111,7 @@ function Services() {
             <Button variant="contained">Buy 499/-</Button>
           </CardActions>
         </Card>
-        <Card sx={{ maxWidth: 300, height: 230 }}>
+        <Card sx={{ width: '30%', height: 230 }}>
           <CardActionArea>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -137,7 +138,7 @@ function Services() {
           </CardActions>
         </Card>
       </div>
-    </div>
+    </section>
   );
 }
 

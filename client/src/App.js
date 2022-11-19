@@ -7,7 +7,7 @@ import ChooseInterview from './pages/ChooseInterview'
 import ChooseDomain from './pages/ChooseDomain'
 import ChooseLevel from './pages/Chooselevel'
 import Instructions from './pages/Instruction'
-import Start from './pages/Start'
+import StartTest from './pages/StartTest'
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/chooseDomain" element={ <ChooseDomain/>} />
           <Route exact path="/chooseLevel" element={ <ChooseLevel/>} />
           <Route exact path="/instructions" element={ <Instructions/>} />
-          <Route exact path="/Start" element={ <Start/>} />
+          <Route exact path="/Start" element={ <StartTest/>} />
         </Routes>
     </>
   )

@@ -1,10 +1,12 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
+import headerpic from '../../images/Headerpic.png'
 
 function Header() {
   return (
-    <div className="class">
-      <div className="name">
+    <section className="name">
+      <div className="hero-content">
+
         <h1>
           What is
           <span> Prepmock?</span>
@@ -25,9 +27,9 @@ function Header() {
         <a href="#" className="cv-btn">
           {"Contact Us"}
         </a>
-        {/* <img src={headerpic} id="headerpic" style={{ height: "100px" }} alt="/"></img> */}
       </div>
-    </div>
+      <img src={headerpic} id="headerpic" alt="/"></img>
+    </section>
   );
 }
 

@@ -29,13 +29,14 @@ function FeatureBox(props) {
 
   return (
     <div className="a-Box">
-      <div className="a-b-img">
-        <img src={props.image} />
-      </div>
+
+        <img className="a-b-img" src={props.image} />
+
       <div className="s-b-text">
         <h2>{props.title}</h2>
         <Button variant="contained" onClick={() => verifyLogin()}> Start </Button>
       </div>
+
     </div>
   );
 }

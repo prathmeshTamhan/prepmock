@@ -30,8 +30,7 @@ function Navbar() {
 
 
   return (
-    <div>
-        <nav className='{nav ? nav active : nav}'>
+        <nav className='{nav ? nav active : nav} border'>
             <a href='#' className='logo'>
                 <img src={logo} alt=''/>
             </a>
@@ -41,13 +40,12 @@ function Navbar() {
                 </span>
             </label>
             <ul>
-                <li><Link to='/' className='active'>Home</Link></li>
-                <li><a >Plans</a></li>
-                <li><a >Contact Us</a></li>
-                <li>{ !user.isAuthenticated ? <Link to='/login' > Login </Link> : <Link to='/login' onClick={()=>{       setIsLogged({isAuthenticated:false , accessToken : ""})}}> Logout </Link>}</li>
+                <li onClick={()=>{window.scroll({ top: 0, left: 0, behavior: 'smooth' });}}><Link to='/' className='active'>Home</Link></li>
+                <li  ><a onClick={()=>{window.scroll({ top: window.innerHeight*2, left: 0, behavior: 'smooth' });}} >Plans</a></li>
+                <li onClick={()=>{window.scroll({ top: window.innerHeight*3, left: 0, behavior: 'smooth' });}} ><a >Contact Us</a></li>
+                <li  >{ !user.isAuthenticated ? <Link to='/login' > Login </Link> : <Link to='/login' onClick={()=>{       setIsLogged({isAuthenticated:false , accessToken : ""})}}> Logout </Link>}</li>
             </ul>
         </nav>
-    </div>
   )
 }
 
