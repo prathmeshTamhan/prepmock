@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import feature from "../../images/feature_1.png";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -9,8 +8,7 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 
 
 function Services() {
-  const [loading, setLoading] = useState(false);
-  const [orderAmount, setOrderAmount] = useState(0);
+
 
   const loadScript = (src) => {
     return new Promise((resovle) => {
@@ -32,10 +30,6 @@ function Services() {
 
   async function displayRazorpay(amount) {
     const script = document.createElement("script");
-    // script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    // script.onerror = () => {
-    //   alert("Razorpay SDK failed to load. Are you online?");
-    // };
 
     const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
 
