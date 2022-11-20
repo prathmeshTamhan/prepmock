@@ -9,7 +9,6 @@ function Footer() {
     <div className="main-footer">
       <Box
         sx={{
-          width: 2000,
           height: 315.9,
           backgroundColor: "#231955",
           "&:hover": {

@@ -6,8 +6,12 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import "../pagescss/Domain.css";
+import { useNavigate } from "react-router";
 
 function ChooseInterview() {
+
+  const navigate = useNavigate()
+
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -43,7 +47,7 @@ function ChooseInterview() {
             different domains to check how technically sound interviwee is? This
             section include questions from different technical domains
           </h6>
-          <Button variant="contained">Go Ahead</Button>
+          <Button variant="contained"  onClick={()=>{navigate('/chooseDomain?interview=technical')}} >Go Ahead</Button>
         </Item>
         <Item
           sx={{
@@ -62,7 +66,7 @@ function ChooseInterview() {
             personality traits and to check various behavioural factors to
             determine interviwee's actual personality.
           </h6>
-          <Button variant="contained">Go Ahead</Button>
+          <Button variant="contained" onClick={()=>{navigate('/chooseDomain?interview=hr')}} >Go Ahead</Button>
         </Item>
       </Stack>
     </div>

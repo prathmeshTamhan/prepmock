@@ -5,10 +5,14 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router";
 
 // import "../pagescss/Domain.css";
 
 function ChooseDomain() {
+
+  const navigate = useNavigate()
+
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -42,7 +46,12 @@ function ChooseDomain() {
             Computer networking refers to interconnected computing devices that
             can exchange data and share resources with each other.
           </h6>
-          <Button variant="contained">Lets Begin</Button>
+
+          <Button variant="contained" onClick={()=>{  
+            const interview =  (window.location.href).split('?')[1] 
+            console.log(interview)
+            navigate(`/chooseLevel?${interview}&domain=CN`)
+            }} >Lets Begin</Button>
         </Item>
         <Item
           sx={{
@@ -61,7 +70,11 @@ function ChooseDomain() {
             computer by a boot program, manages all of the other application
             programs in a computer.
           </h6>
-          <Button variant="contained">Lets Begin</Button>
+          <Button variant="contained" onClick={()=>{  
+            const interview =  (window.location.href).split('?')[1] 
+            console.log(interview)
+            navigate(`/chooseLevel?${interview}&domain=OS`)
+            }}  >Lets Begin</Button>
         </Item>
         <Item
           sx={{
@@ -80,7 +93,11 @@ function ChooseDomain() {
             Software system that enables users to define, create, maintain and
             control access to the database
           </h6>
-          <Button variant="contained">Lets Begin</Button>
+          <Button variant="contained" onClick={()=>{  
+            const interview =  (window.location.href).split('?')[1] 
+            console.log(interview)
+            navigate(`/chooseLevel?${interview}&domain=DBMS`)
+            }}  >Lets Begin</Button>
         </Item>
       </Stack>
     </div>
