@@ -18,6 +18,7 @@ function App() {
           <Route exact path="/register" element={ <Register/>} />
           <Route exact path="/chooseInterview" element={ <ChooseInterview/>} />
           <Route exact path="/chooseDomain" element={ <ChooseDomain/>} />
+          
           <Route exact path="/chooseLevel" element={ <ChooseLevel/>} />
           <Route exact path="/instructions" element={ <Instructions/>} />
           <Route exact path="/Start" element={ <StartTest/>} />
