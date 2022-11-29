@@ -8,7 +8,7 @@ const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 const { CNSchema, DBMSSchema, OSSchema, HRSchema } = require("../models/que.model");
 
-//an endpont to insert data into database
+//an endpont to insert data into database that is to insert questions
 router.post("/addQue", async (req, res) => {
   const CN = req.body.CN;
   const DBMS = req.body.DBMS;

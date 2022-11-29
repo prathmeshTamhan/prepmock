@@ -11,6 +11,9 @@ router.get("/get-razorpay-key", (req, res) => {
   res.send({ key: process.env.RAZORPAY_KEY_ID });
 });
 
+//API to initialize the payment gatway, creating the instance 
+//getting the amount from
+//the body
 router.post("/create-order", async (req, res) => {
   try {
     console.log(req.body.amount);
@@ -27,15 +30,6 @@ router.post("/create-order", async (req, res) => {
       currency: "INR",
     };
 
-    // const newUser = await User({
-		// 	name: req.body.name,
-		// 	email: req.body.email,
-		// 	college:req.body.college,
-		// 	password: newPassword,
-		// })
-
-		// const user = await newUser.save()
-
     const order = await instance.orders.create(options);
     if (!order) return res.status(500).send("Some error occured");
     res.send(order);
@@ -45,6 +39,8 @@ router.post("/create-order", async (req, res) => {
   }
 });
 
+
+//Api to send the amount payment id created while initialization , orderID and signature
 router.post("/pay-order", async (req, res) => {
   try {
     const { amount, razorpayPaymentId, razorpayOrderId, razorpaySignature } =
