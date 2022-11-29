@@ -8,6 +8,7 @@ import{
   faVideo,
   faKeyboard,
 }from "@fortawesome/free-solid-svg-icons"
+import CallPage from '../CallPages/CallPage';
 function VidHomePage() {
   return (
     
@@ -18,7 +19,7 @@ function VidHomePage() {
           <div className='content'>
             <h1>Click below to join Meet</h1>
             <div className='action-btn'>
-              <button className='btn green'>
+              <button className='btn green' >
                 <FontAwesomeIcon className="icon-block" icon ={faVideo}/>
                 New Meeting
               </button>

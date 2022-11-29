@@ -33,6 +33,10 @@ app.use("/auth", authRoute);
 app.use("/que", queRoute);
 app.use("/payment", paymentRoute);
 
+
+
+
+
 app.listen(1337, () => {
   console.log("Server started on 1337");
 });
