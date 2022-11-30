@@ -9,11 +9,12 @@ import ChooseLevel from './pages/Chooselevel'
 import Instructions from './pages/Instruction'
 import StartTest from './pages/StartTest'
 import MockInterview from './pages/MockInterview'
+import VidHomePage from './components/HomePage/VidHomePage';
 
 function App() {
   return (
     <>
-        {/* <Routes>
+        <Routes>
           <Route exact path="/" element={<HomePage/>} />
           <Route exact path="/login" element={<Login/>} />
           <Route exact path="/register" element={ <Register/>} />
@@ -24,8 +25,9 @@ function App() {
           <Route exact path="/instructions" element={ <Instructions/>} />
           <Route exact path="/Start" element={ <StartTest/>} />
           <Route exact path="/Mockinterview" element={ <MockInterview/>} />
-        </Routes> */}
-        <MockInterview/>
+          <Route exact path="/VidHomePage" element={ <VidHomePage/>} />
+        </Routes>
+        {/* <MockInterview/> */}
     </>
   )
 }
