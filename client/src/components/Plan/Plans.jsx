@@ -85,7 +85,11 @@ function Services() {
           </CardActionArea>
           <CardActions>
             {/* <Button variant="contained">Buy 299/-</Button> */}
-            <Button variant="contained">Buy 299/-</Button>
+            <Button  variant="contained"
+              id='299' value={299}
+              onClick={() => {
+                displayRazorpay(299);
+              }}>Buy 299/-</Button>
           </CardActions>
         </Card>
         <Card sx={{ width: '30%', height: 230 }}>
@@ -102,7 +106,11 @@ function Services() {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button variant="contained">Buy 499/-</Button>
+            <Button  variant="contained"
+              id='499' value={499}
+              onClick={() => {
+                displayRazorpay(499);
+              }}>Buy 499/-</Button>
           </CardActions>
         </Card>
         <Card sx={{ width: '30%', height: 230 }}>

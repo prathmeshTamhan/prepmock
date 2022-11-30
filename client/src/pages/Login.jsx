@@ -92,7 +92,7 @@ function Login() {
           <br />
           <Button variant="contained" type="submit" value="Login" onClick={() => { loginUser() }} >Log in</Button>
         </div>
-        <h6>Don't have an account?  <Link href="#" color="inherit">
+        <h6>Don't have an account?  <Link color="inherit">
           {'Sign Up'}
         </Link></h6>
       </div>

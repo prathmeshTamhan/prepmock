@@ -26,7 +26,7 @@ function FeatureBox(props) {
     }
 
   }
-
+  
   return (
     <div className="a-Box">
 
