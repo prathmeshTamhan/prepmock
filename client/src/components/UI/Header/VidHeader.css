@@ -1,0 +1,119 @@
+/* .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.header .logo {
+    display: flex;
+    align-items: center;
+    width: 124px;
+    
+   
+
+}
+.header .logo img {
+    width: 100%;
+   
+}
+.header .logo .help-text {
+    font-size: 22p
+    padding-left: 4px;
+    color: #5f6368;
+    position: relative;
+}
+.header .action-btn {
+    display: inline-flex;
+    align-items:center;
+    float: right;
+
+    
+
+}
+.header .action-btn .icon-block {
+    font-size: 20px;
+    padding: 10px;
+    color: #5f6368;
+    position: absolute;
+
+    
+
+
+} */
+/* .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 1%;
+}
+.header .logo {
+    display: flex;
+    align-items: center;
+    width: 124px;
+}
+.header .logo img {
+    width: 100%;
+}
+.header .logo .help-text {
+    font-size: 22px;
+    padding-left: 4px;
+    color: #5f6368;
+}
+.header .action-btn {
+    display: flex;
+    align-items: center;
+    
+}
+.header .action-btn .icon-block {
+    font-size: 20px;
+    padding: 10px;
+    color: #5f6368;
+
+    
+} */
+
+/* .header{
+    width: 100%;
+
+}
+.meet-logo{
+    height: 5%;
+
+} */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;}
+.header.logo {
+    display: flex;
+    align-items: center;
+    width: 124px;}
+    
+.header.logo img {
+      width: 100%;
+    }
+.header.logo.help-text {
+      font-size: 22px;
+      padding-left: 4px;
+      color: #5f6368;
+    }
+  
+  .header.action-btn {
+    display: flex;
+    align-items: center;}
+.header.icon-block {
+      font-size: 20px;
+      padding: 10px;
+      color: #5f6368;
+      
+      
+      
+
+    }
+  
+
