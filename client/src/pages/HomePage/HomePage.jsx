@@ -11,7 +11,7 @@ export default function HomePage() {
     <div>
         <Navbar/>
         <Header/>
-        <Feature/>
+        <Feature />
         <Plans/>
         <Footer/>
     </div>

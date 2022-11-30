@@ -8,8 +8,8 @@ function Feature() {
     <section id="features" className=" ">
       <h2 id="heading-service" >Our Services</h2>
       <div className="a-container ">     
-        <FeatureBox image={featureimage} title= 'Mock Interview'/>
-        <FeatureBox image={featureimage1} title='Video Conferencing'/>
+        <FeatureBox image={featureimage} destination='chooseInterview' title= 'Mock Interview'/>
+        <FeatureBox image={featureimage1} destination='VidHomePage' title='Video Conferencing'/>
       </div>
     </section>
   );

@@ -3,6 +3,10 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import  '../HomePage/vidHomepage.css';
 import VidHeader from '../UI/Header/VidHeader';
 import vectormeet from '../../images/vectormeet.jpg';
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { acitionCreators } from '../../States/index'
+import { useNavigate } from 'react-router-dom'
 
 import{
   faVideo,
@@ -10,6 +14,24 @@ import{
 }from "@fortawesome/free-solid-svg-icons"
 import CallPage from '../CallPages/CallPage';
 function VidHomePage() {
+
+  const dispatch = useDispatch()
+  const { setIsLogged } = bindActionCreators(acitionCreators, dispatch)
+  const navigate = useNavigate()
+
+  const user = useSelector(state => state.User)
+
+  function verifyLogin() {
+
+    if( !user.isAuthenticated ){
+      navigate('login')
+    }
+    else{
+      navigate('VidHomePage')
+    }
+
+  }
+
   return (
     
     <div className='home-page'>

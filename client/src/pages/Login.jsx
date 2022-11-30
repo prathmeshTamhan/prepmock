@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import image from "../images/feature_1.png";
 import Button from "@mui/material/Button";
-import Link from '@mui/material/Link';
+import { Link } from "react-router-dom";
 import "../pagescss/signinlogin.css";
 import axios from 'axios'
 import { setIsLogged } from '../../src/States/action-creators'
@@ -46,7 +46,7 @@ function Login() {
         console.log(JSON.stringify(response.data));
         setIsLogged(response.data)
         alert("Login Successfull")
-        navigate('/chooseDomain')
+        navigate('/')
       })
       .catch(function (error) {
         console.log(error);
@@ -92,7 +92,7 @@ function Login() {
           <br />
           <Button variant="contained" type="submit" value="Login" onClick={() => { loginUser() }} >Log in</Button>
         </div>
-        <h6>Don't have an account?  <Link color="inherit">
+        <h6>Don't have an account?  <Link to='/register' color="inherit">
           {'Sign Up'}
         </Link></h6>
       </div>

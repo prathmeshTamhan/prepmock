@@ -22,7 +22,7 @@ function FeatureBox(props) {
       navigate('login')
     }
     else{
-      navigate('chooseInterview')
+      navigate(`${props.destination}`)
     }
 
   }

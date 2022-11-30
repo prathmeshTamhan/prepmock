@@ -20,6 +20,7 @@ import { Badge } from "antd";
 import Button from "@mui/material/Button";
 import { useReactMediaRecorder } from "react-media-recorder";
 import Text from "antd/lib/typography/Text";
+
 const MockInterview = ({
   screen,
   audio,
@@ -29,7 +30,9 @@ const MockInterview = ({
   emailToSupport,
 }) => {
   const [recordingNumber, setRecordingNumber] = useState(0);
+
   const RecordView = () => {
+
     const {
       status,
       startRecording: startRecord,
@@ -53,12 +56,15 @@ const MockInterview = ({
       setRecordingNumber(currentTimeSatmp);
       return stopRecord();
     };
+
     const viewRecording = () => {
       window.open(mediaBlobUrl, "_blank").focus();
     };
 
     const downloadRecording = () => {
+
       const pathName = `${downloadRecordingPath}_${recordingNumber}.${downloadRecordingType}`;
+
       try {
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
           // for IE
@@ -66,6 +72,7 @@ const MockInterview = ({
         } else {
           // for Chrome
           const link = document.createElement("a");
+          console.log(mediaBlobUrl)
           link.href = mediaBlobUrl;
           link.download = pathName;
           document.body.appendChild(link);
@@ -76,6 +83,7 @@ const MockInterview = ({
         console.error(err);
       }
     };
+
     const mailRecording = () => {
       try {
         window.location.href = `mailTo:${emailToSupport}?subject=Screen recording for an Issue number ${recordingNumber}&body=Hello%20Team,%0D%0A%0D%0A${mediaBlobUrl}`;
@@ -83,6 +91,7 @@ const MockInterview = ({
         console.error(err);
       }
     };
+
     return (
       <div>
         {status && status !== "stopped" && (
