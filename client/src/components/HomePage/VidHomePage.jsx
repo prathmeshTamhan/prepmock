@@ -3,34 +3,22 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import  '../HomePage/vidHomepage.css';
 import VidHeader from '../UI/Header/VidHeader';
 import vectormeet from '../../images/vectormeet.jpg';
-import { useDispatch, useSelector } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { acitionCreators } from '../../States/index'
-import { useNavigate } from 'react-router-dom'
-
+import shortid from "shortid";
+import { useNavigate } from "react-router-dom";
 import{
   faVideo,
   faKeyboard,
 }from "@fortawesome/free-solid-svg-icons"
-import CallPage from '../CallPages/CallPage';
+
 function VidHomePage() {
+  
+  const navigate = useNavigate();
+  
+  const startCall = () => {
+    const uid = shortid.generate();
+    navigate(`/${uid}#init`);
+  };
 
-  const dispatch = useDispatch()
-  const { setIsLogged } = bindActionCreators(acitionCreators, dispatch)
-  const navigate = useNavigate()
-
-  const user = useSelector(state => state.User)
-
-  function verifyLogin() {
-
-    if( !user.isAuthenticated ){
-      navigate('login')
-    }
-    else{
-      navigate('VidHomePage')
-    }
-
-  }
 
   return (
     
@@ -41,7 +29,7 @@ function VidHomePage() {
           <div className='content'>
             <h1>Click below to join Meet</h1>
             <div className='action-btn'>
-              <button className='btn green' >
+              <button className='btn green' onClick={startCall}>
                 <FontAwesomeIcon className="icon-block" icon ={faVideo}/>
                 New Meeting
               </button>
@@ -58,7 +46,7 @@ function VidHomePage() {
         </div>
         <div className='right-side'>
           <div className='content'>
-            <img src={vectormeet} alt="vector image"/>
+            <img src={vectormeet} alt="vector"/>
             
           </div>
         </div>
