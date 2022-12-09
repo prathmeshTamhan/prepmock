@@ -6,6 +6,7 @@ exports.saveCallId = async (req, res) => {
     await saveCallId(id, signalData);
     res.status(200).send(true);
   } catch (ex) {
+    console.log(ex)
     res.status(400).send(ex.message);
   }
 };
