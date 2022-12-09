@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./MeetingInfo.css";
 
-const MeetingInfo = ({ setMeetInfoPopup, url }) => {
+const MeetingInfo = ({setMeetInfoPopup, url}) => {
   return (
     <div className="meeting-info-block">
       <div className="meeting-header">
@@ -15,9 +15,11 @@ const MeetingInfo = ({ setMeetInfoPopup, url }) => {
         <FontAwesomeIcon
           className="icon"
           icon={faTimes}
-          onClick={() => {
-            // setMeetInfoPopup(false);
-          }}
+          onClick={() =>{
+            setMeetInfoPopup(false);
+          }
+
+          }
         />
       </div>
       <button className="add-people-btn">
