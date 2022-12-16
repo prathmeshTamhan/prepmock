@@ -20,6 +20,7 @@ app.use(express.json());
 const authRoute = require("./Routes/auth");
 const queRoute = require("./Routes/que");
 const paymentRoute = require("./Routes/payment");
+const mailRoute = require("./Routes/mail");
 
 main().catch((err) => console.log(err));
 
@@ -32,6 +33,7 @@ async function main() {
 app.use("/auth", authRoute);
 app.use("/que", queRoute);
 app.use("/payment", paymentRoute);
+app.use("/mail", mailRoute);
 
 
 

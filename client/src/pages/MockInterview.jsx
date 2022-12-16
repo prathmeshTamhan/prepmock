@@ -20,6 +20,7 @@ import { Badge } from "antd";
 import Button from "@mui/material/Button";
 import { useReactMediaRecorder } from "react-media-recorder";
 import Text from "antd/lib/typography/Text";
+import axios from 'axios'
 
 const MockInterview = ({
   screen,
@@ -30,6 +31,37 @@ const MockInterview = ({
   emailToSupport,
 }) => {
   const [recordingNumber, setRecordingNumber] = useState(0);
+
+
+  const sendMail = (mail, recordingNumber, mediaBlobUrl) => {
+
+    var data = JSON.stringify({
+      "mail": mail,
+      "recNo": recordingNumber,
+      "media": mediaBlobUrl
+    });
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:1337/mail/sendMail',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        if (response.status === 200) {
+          alert('Email Sent')
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+  }
 
   const RecordView = () => {
 
@@ -85,11 +117,7 @@ const MockInterview = ({
     };
 
     const mailRecording = () => {
-      try {
-        window.location.href = `mailTo:${emailToSupport}?subject=Screen recording for an Issue number ${recordingNumber}&body=Hello%20Team,%0D%0A%0D%0A${mediaBlobUrl}`;
-      } catch (err) {
-        console.error(err);
-      }
+        sendMail(emailToSupport, recordingNumber, mediaBlobUrl)
     };
 
     return (
@@ -122,6 +150,7 @@ const MockInterview = ({
             {mediaBlobUrl ? "Record again" : "Record your Problem"}
           </Button>
         )}
+
         {status && status === "recording" && (
           <Button
             size="small"
@@ -135,6 +164,7 @@ const MockInterview = ({
             Stop Recording
           </Button>
         )}
+
         {mediaBlobUrl && status && status === "stopped" && (
           <Button
             size="small"
@@ -162,6 +192,7 @@ const MockInterview = ({
               Download
             </Button>
           )}
+
         {emailToSupport && mediaBlobUrl && status && status === "stopped" && (
           <Button
             size="small"
