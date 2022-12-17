@@ -31,15 +31,21 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
   const [recordingNumber, setRecordingNumber] = useState(0);
   const [queBank, setQueBank] = useState([]);
   const [CurrentQueBank, setCurrentQueBank] = useState([]);
+  const [subject, setSubject] = useState();
+  const [diff, setDiff] = useState();
   const queContainer = useRef()
-
 
 
   useEffect(() => {
 
+    let subject = (window.location.href).split('&')[1].split('=')[1];
+    let diff = (window.location.href).split('&')[2].split('=')[1];
+    setSubject(subject)
+    setDiff(diff)
+
     var data = JSON.stringify({
-      "subject": "CN",
-      "difficultyLevel": "Advance"
+      "subject": subject,
+      "difficultyLevel": diff.charAt(0).toUpperCase() + diff.slice(1)
     });
 
     var config = {
@@ -277,7 +283,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
         <button onClick={() => { renderQueComp() }} >Next</button>
       </div>
 
-        <div className="questionContainer border" ref={queContainer} ></div>
+      <div className="questionContainer border" ref={queContainer} ></div>
     </div>
   );
 };
