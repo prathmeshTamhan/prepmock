@@ -8,7 +8,7 @@ import ChooseDomain from './pages/ChooseDomain'
 import ChooseLevel from './pages/Chooselevel'
 import Instructions from './pages/Instruction'
 import StartTest from './pages/StartTest'
-import MockInterview from './pages/MockInterview'
+import MockInterview from './pages/MockInterview/MockInterview'
 import VidHomePage from './components/HomePage/VidHomePage';
 import CallPage from './components/CallPages/CallPage';
 import No_Match from './components/NoMatch/No_Match';

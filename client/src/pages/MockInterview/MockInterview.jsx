@@ -21,6 +21,7 @@ import Button from "@mui/material/Button";
 import { useReactMediaRecorder } from "react-media-recorder";
 import Text from "antd/lib/typography/Text";
 import axios from 'axios'
+import './MockInterview.css'
 
 const MockInterview = ({
   screen,
@@ -117,13 +118,13 @@ const MockInterview = ({
     };
 
     const mailRecording = () => {
-        sendMail(emailToSupport, recordingNumber, mediaBlobUrl)
+      sendMail(emailToSupport, recordingNumber, mediaBlobUrl)
     };
 
     return (
       <div>
         {status && status !== "stopped" && (
-          <Text>Screen Recording Status: {status && status.toUpperCase()}</Text>
+          <Text>Screen Recording Status: <span className="videoStatus"> {status && status.toUpperCase()} </span> </Text>
         )}
         {status && status === "recording" && (
           <Badge
@@ -207,9 +208,11 @@ const MockInterview = ({
       </div>
     );
   };
+
   return (
     <div className="Scren-Record-Wrapper" style={{ padding: "5px 20px" }}>
-      {RecordView()}
+      <div className="videoRecorder border">{RecordView()}</div>
+      <div className="questionContainer border"></div>
     </div>
   );
 };
