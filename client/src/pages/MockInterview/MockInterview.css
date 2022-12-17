@@ -1,14 +1,29 @@
-.Scren-Record-Wrapper{
+.Scren-Record-Wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 }
 
-.videoRecorder{
-    flex: 2.5;
+.videoRecorder {
+    flex: 2;
 }
 
-.questionContainer{
+.questionContainer {
     flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 98vh;
+    border-radius: 8px;
+    padding: 8px 8px;
+    overflow-y: scroll;
+
+}
+
+.questionContainer:last-child {
+    scroll-snap-align: end;
+
 }

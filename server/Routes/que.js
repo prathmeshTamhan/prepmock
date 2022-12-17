@@ -16,7 +16,7 @@ router.post("/addQue", async (req, res) => {
   const HR = req.body.HR;
 
   console.log(CN);
-//Iterating over the number of questions put in postman and publishing it over database
+  //Iterating over the number of questions put in postman and publishing it over database
   try {
     CN.forEach(async (element) => {
       const CNQue = await CNSchema({
@@ -66,6 +66,7 @@ router.post("/addQue", async (req, res) => {
 
 //an endpoint to retrieve the data from database
 router.get("/getQue", async (req, res) => {
+
   const subject = req.body.subject;
   const difficultyLevel = req.body.difficultyLevel;
 
@@ -81,14 +82,65 @@ router.get("/getQue", async (req, res) => {
     } else if (subject === "OS") {
       const queBank = await OSSchema.find({ difficultyLevel });
       res.json(queBank);
-    }else if(subject=== 'HR'){
-        const queBank = await HRSchema.find({que});
-        res.json(queBank);
+    } else if (subject === 'HR') {
+      const queBank = await HRSchema.find({ que });
+      res.json(queBank);
     }
   } catch (e) {
     console.log(e);
     res.json(e);
   }
+
 });
+
+router.post('/getRandomQue', async (req, res) => {
+
+  const subject = req.body.subject;
+  const difficultyLevel = req.body.difficultyLevel;
+
+  let queBank = []
+
+  const mustHaveQue = [
+    {_id: '', difficultyLevel: 'Common', que: 'What are your Strength and Weaknesses?'},
+    {_id: '', difficultyLevel: 'Common', que: 'Introduce Yourself?'},
+  ]
+
+  try {
+
+    if (subject === "CN") {
+
+      queBank = await CNSchema.find({ difficultyLevel });
+
+
+    } else if (subject === "DBMS") {
+
+      queBank = await DBMSSchema.find({ difficultyLevel });
+
+    } else if (subject === "OS") {
+
+      queBank = await OSSchema.find({ difficultyLevel });
+
+    } else if (subject === 'HR') {
+
+      queBank = await HRSchema.find({ que });
+
+    }
+
+    const shuffled = queBank.sort(() => 0.5 - Math.random());
+    let randomQueBank = shuffled.slice(0, 10);
+    res.json([ ...randomQueBank, ...mustHaveQue ])
+
+
+  } 
+  catch (e) {
+    console.log(e);
+    res.json(e);
+  }
+
+  
+
+
+
+})
 
 module.exports = router;

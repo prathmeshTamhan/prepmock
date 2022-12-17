@@ -15,23 +15,84 @@
 // }
 
 // // export default MockInterview
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Badge } from "antd";
 import Button from "@mui/material/Button";
 import { useReactMediaRecorder } from "react-media-recorder";
 import Text from "antd/lib/typography/Text";
-import axios from 'axios'
 import './MockInterview.css'
+import { useRef } from "react";
+import axios from 'axios'
+import * as ReactDOM from 'react-dom/client';
+import QueDiv from "../../components/QueDiv/QueDiv";
 
-const MockInterview = ({
-  screen,
-  audio,
-  video,
-  downloadRecordingPath,
-  downloadRecordingType,
-  emailToSupport,
-}) => {
+export default function MockInterview({ screen, audio, video, downloadRecordingPath, downloadRecordingType, emailToSupport }) {
+
   const [recordingNumber, setRecordingNumber] = useState(0);
+  const [queBank, setQueBank] = useState([]);
+  const [CurrentQueBank, setCurrentQueBank] = useState([]);
+  const queContainer = useRef()
+
+
+
+  useEffect(() => {
+
+    var data = JSON.stringify({
+      "subject": "CN",
+      "difficultyLevel": "Advance"
+    });
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:1337/que/getRandomQue',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(response.data);
+        setQueBank(response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+
+  }, [])
+
+  useEffect(() => {
+    renderQueComp()
+  }, [queBank])
+
+
+
+  const renderQueComp = async () => {
+
+    let arr = CurrentQueBank
+    let ele = queBank.pop()
+    let compArr = []
+
+    arr.push(ele)
+
+    arr.forEach((que) => {
+      try {
+        compArr.push(<QueDiv que={que.que} />)
+      } catch (e) { }
+    })
+
+    console.log(queBank)
+
+    const root = ReactDOM.createRoot(queContainer.current)
+    root.render(
+      compArr
+    )
+
+  }
+
 
 
   const sendMail = (mail, recordingNumber, mediaBlobUrl) => {
@@ -211,9 +272,13 @@ const MockInterview = ({
 
   return (
     <div className="Scren-Record-Wrapper" style={{ padding: "5px 20px" }}>
-      <div className="videoRecorder border">{RecordView()}</div>
-      <div className="questionContainer border"></div>
+      <div className="videoRecorder border">
+        {RecordView()}
+        <button onClick={() => { renderQueComp() }} >Next</button>
+      </div>
+
+        <div className="questionContainer border" ref={queContainer} ></div>
     </div>
   );
 };
-export default MockInterview;
+
