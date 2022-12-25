@@ -35,7 +35,15 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
   const [diff, setDiff] = useState();
   const queContainer = useRef()
 
-
+const video2 = document.getElementById(video);
+function startVideo() {
+  navigator.getUserMedia(
+    { video: {} },
+    stream => video.srcObject = stream,
+    err => console.error(err)
+  )
+}
+startVideo();
   useEffect(() => {
 
     let subject = (window.location.href).split('&')[1].split('=')[1];
@@ -277,6 +285,8 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
   };
 
   return (
+    <>
+    <video id="video" autoplay muted width="720" height="200"> </video>
     <div className="Scren-Record-Wrapper" style={{ padding: "5px 20px" }}>
       <div className="videoRecorder border">
         {RecordView()}
@@ -285,6 +295,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
 
       <div className="questionContainer border" ref={queContainer} ></div>
     </div>
+    </>
   );
 };
 

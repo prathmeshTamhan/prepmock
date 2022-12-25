@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/chooseLevel" element={<ChooseLevel />} />
         <Route exact path="/instructions" element={<Instructions />} />
         <Route exact path="/Start" element={<StartTest />} />
-        <Route exact path="/Mockinterview" element={<MockInterview emailToSupport={'bhaveshap09112002@gmail.com'} />} />
+        <Route exact path="/Mockinterview" element={<MockInterview emailToSupport={'prathamtamhan123@gmail.com'} />} />
 
         {/* <Route  exact path = "/:id" element={<CallPage />}/>
           <Route exact path="/" element={<VidHomePage />}/>
