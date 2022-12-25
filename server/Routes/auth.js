@@ -67,7 +67,7 @@ router.post('/login', async (req, res) => {
 			'secret123'
 		)
 
-		return res.json({ isAuthenticated: true, accessToken: token })
+		return res.json({ isAuthenticated: true, accessToken: token , userEmail:req.body.email })
 	} else {
 		return res.json({ isAuthenticated: false, accessToken:""})
 	}

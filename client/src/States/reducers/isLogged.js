@@ -1,5 +1,6 @@
 const initialState = {
     isAuthenticated:false,
+    userEmail : "",
     accessToken:""
 }
 

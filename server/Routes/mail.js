@@ -17,9 +17,10 @@ var transporter = nodemailer.createTransport({
 
 router.post('/sendMail', async (req, res) => {
 
-    const mail = req.body.mail
+    const mail = JSON.stringify(req.body.mail)
     const recNo = req.body.recNo
     let media = req.body.media
+
 
     // blobToBase64(media, (result) => {
     //     console.log(result)
