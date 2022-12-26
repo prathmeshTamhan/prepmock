@@ -26,13 +26,12 @@ router.post('/sendMail', async (req, res) => {
     //     console.log(result)
     // })
 
-    console.log(`<a href="${media}" >Click</a>`)
 
     var mailOptions = {
         from: 'prathamtamhan123@gmail.com',
         to: mail,
         subject: `Screen recording for an Issue number ${recNo}`,
-        html: `<a href="${media}" >Click</a>`
+        html: `<span> Paste this url in your browser :  ${JSON.stringify(media)} </span>`
     };
 
     try {
