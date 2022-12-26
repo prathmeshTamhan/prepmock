@@ -35,6 +35,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
   const [diff, setDiff] = useState();
   const queContainer = useRef()
 
+  //webcam code
 const video2 = document.getElementById(video);
 function startVideo() {
   navigator.getUserMedia(
@@ -43,6 +44,7 @@ function startVideo() {
     err => console.error(err)
   )
 }
+
 startVideo();
   useEffect(() => {
 

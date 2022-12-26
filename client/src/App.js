@@ -9,6 +9,7 @@ import ChooseLevel from './pages/Chooselevel'
 import Instructions from './pages/Instruction'
 import StartTest from './pages/StartTest'
 import MockInterview from './pages/MockInterview/MockInterview'
+import Instruction from './pages/Instruction';
 import VidHomePage from './components/HomePage/VidHomePage';
 import CallPage from './components/CallPages/CallPage';
 import No_Match from './components/NoMatch/No_Match';
@@ -33,7 +34,7 @@ function App() {
           <Route path="*" element={ <No_Match />}/> */}
 
       </Routes>
-      {/* <MockInterview/> */}
+      {/* <Instruction/> */}
     </>
   )
 }
