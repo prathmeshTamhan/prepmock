@@ -14,7 +14,22 @@ import VidHomePage from './components/HomePage/VidHomePage';
 import CallPage from './components/CallPages/CallPage';
 import No_Match from './components/NoMatch/No_Match';
 
+import { setIsLogged } from './States/action-creators/index'
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { acitionCreators } from './States/index'
+import { useNavigate } from 'react-router-dom'
+
 function App() {
+
+
+  const dispatch = useDispatch()
+  const { setIsLogged } = bindActionCreators(acitionCreators, dispatch)
+  const navigate = useNavigate()
+
+  const user = useSelector(state => state.User)
+  console.log(user)
+
   return (
     <>
       <Routes>
@@ -27,7 +42,7 @@ function App() {
         <Route exact path="/chooseLevel" element={<ChooseLevel />} />
         <Route exact path="/instructions" element={<Instructions />} />
         <Route exact path="/Start" element={<StartTest />} />
-        <Route exact path="/Mockinterview" element={<MockInterview emailToSupport={'prathamtamhan123@gmail.com'} />} />
+        <Route exact path="/Mockinterview" element={<MockInterview emailToSupport={user.userEmail} />} />
 
         {/* <Route  exact path = "/:id" element={<CallPage />}/>
           <Route exact path="/" element={<VidHomePage />}/>

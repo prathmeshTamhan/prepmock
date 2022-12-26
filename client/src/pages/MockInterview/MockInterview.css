@@ -7,6 +7,7 @@
 
 .videoRecorder {
     flex: 2;
+    height: 98vh;
 }
 
 .questionContainer {
@@ -26,4 +27,8 @@
 .questionContainer:last-child {
     scroll-snap-align: end;
 
+}
+
+#video{
+    height: 90%;
 }

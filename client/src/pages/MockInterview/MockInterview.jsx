@@ -35,19 +35,36 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
   const [diff, setDiff] = useState();
   const queContainer = useRef()
 
-  //webcam code
-const video2 = document.getElementById(video);
-function startVideo() {
-  navigator.getUserMedia(
-    { video: {} },
-    stream => video.srcObject = stream,
-    err => console.error(err)
-  )
-}
 
-startVideo();
+  async function startVideo() {
+
+    navigator.getUserMedia = navigator.getUserMedia ||
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia;
+
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia({ audio: true, video: { width: 1280, height: 720 } },
+        (stream) => {
+          const video = document.querySelector('video');
+          video.srcObject = stream;
+          video.onloadedmetadata = (e) => {
+            video.play();
+          };
+        },
+        (err) => {
+          console.error(`The following error occurred: ${err.name}`);
+        }
+      );
+    } else {
+      console.log("getUserMedia not supported");
+    }
+
+  }
+
+
   useEffect(() => {
 
+    startVideo();
     let subject = (window.location.href).split('&')[1].split('=')[1];
     let diff = (window.location.href).split('&')[2].split('=')[1];
     setSubject(subject)
@@ -288,15 +305,18 @@ startVideo();
 
   return (
     <>
-    <video id="video" autoplay muted width="720" height="200"> </video>
-    <div className="Scren-Record-Wrapper" style={{ padding: "5px 20px" }}>
-      <div className="videoRecorder border">
-        {RecordView()}
-        <button onClick={() => { renderQueComp() }} >Next</button>
-      </div>
 
-      <div className="questionContainer border" ref={queContainer} ></div>
-    </div>
+
+      <div className="Scren-Record-Wrapper" style={{ padding: "5px 20px" }}>
+
+        <div className="videoRecorder border">
+          <video id="video" autoPlay muted width="720" height="200"> </video>
+          {RecordView()}
+          <button onClick={() => { renderQueComp() }} >Next</button>
+        </div>
+
+        <div className="questionContainer border" ref={queContainer} ></div>
+      </div>
     </>
   );
 };
