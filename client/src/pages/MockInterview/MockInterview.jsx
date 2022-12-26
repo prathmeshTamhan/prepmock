@@ -34,8 +34,14 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
   const [subject, setSubject] = useState();
   const [diff, setDiff] = useState();
   const queContainer = useRef()
+  const [seconds, setSeconds] = useState(0);
 
-
+  function starttimer(){
+    const interval = setInterval(() => {
+      setSeconds(seconds => seconds + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }
   async function startVideo() {
 
     navigator.getUserMedia = navigator.getUserMedia ||
@@ -93,6 +99,8 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
         console.log(error);
       });
 
+
+     
 
 
   }, [])
@@ -175,6 +183,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
     });
 
     const startRecording = () => {
+      starttimer()
       return startRecord();
     };
 
@@ -217,6 +226,8 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
 
     return (
       <div>
+        
+<div>Seconds: {seconds}</div>
         {status && status !== "stopped" && (
           <Text>Screen Recording Status: <span className="videoStatus"> {status && status.toUpperCase()} </span> </Text>
         )}
@@ -231,6 +242,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
             }}
           />
         )}
+
 
         {status && status !== "recording" && (
           <Button
@@ -312,9 +324,10 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
         <div className="videoRecorder border">
           <video id="video" autoPlay muted width="720" height="200"> </video>
           {RecordView()}
+         
           <button onClick={() => { renderQueComp() }} >Next</button>
         </div>
-
+        
         <div className="questionContainer border" ref={queContainer} ></div>
       </div>
     </>

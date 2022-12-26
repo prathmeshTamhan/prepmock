@@ -44,7 +44,7 @@ function Footer() {
                 </Link>
               </li>
               <li>
- 
+               
                 <Link href="#" underline="hover">
                   Terms and Condition
                 </Link>
