@@ -45,9 +45,9 @@ function App() {
         <Route exact path="/Mockinterview" element={<MockInterview emailToSupport={user.userEmail} />} />
         <Route exact path="/instructions" element={<Instruction />} />
 
-        {/* <Route  exact path = "/:id" element={<CallPage />}/>
-          <Route exact path="/" element={<VidHomePage />}/>
-          <Route path="*" element={ <No_Match />}/> */}
+        <Route exact path="/videoConf/:id" element={<CallPage />} />
+        <Route exact path="/videoConf" element={<VidHomePage />} />
+        <Route path="*" element={<No_Match />} />
 
       </Routes>
       {/* <Instruction/> */}
