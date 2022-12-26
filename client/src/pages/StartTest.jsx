@@ -24,7 +24,7 @@ function Start() {
       <h1 id="start-heading">{subject}</h1>
       <h3>_________________</h3>
       <h1 className="please-start">Please click below to continue the test</h1>
-      <Button variant="contained" id="start-button" onClick={()=>{ window.location.href = `/mockinterview?${(window.location.href).split('?')[1]}` }} >
+      <Button variant="contained" id="start-button" onClick={()=>{ window.location.href = `/instructions?${(window.location.href).split('?')[1]}` }} >
         START
       </Button>
     </div>

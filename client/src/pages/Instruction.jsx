@@ -22,7 +22,7 @@ function Instruction() {
       <li> 1. All the activties of the screen is recoded, dont try to switch windows.</li>
       <li>  2. Dont start you mock before allowing screen sharing, emails wont be sent if screen not shared.</li>
       </ul>
-      <Button variant="contained" onClick={()=>{ window.location.href = `/Start`}}>NEXT</Button>
+      <Button variant="contained"  onClick={()=>{ window.location.href = `/mockInterview?${(window.location.href).split('?')[1]}` }} >NEXT</Button>
       </div>
     </div>
   )
