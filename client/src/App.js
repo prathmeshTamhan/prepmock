@@ -43,6 +43,7 @@ function App() {
         <Route exact path="/instructions" element={<Instructions />} />
         <Route exact path="/Start" element={<StartTest />} />
         <Route exact path="/Mockinterview" element={<MockInterview emailToSupport={user.userEmail} />} />
+        <Route exact path="/instructions" element={<Instruction />} />
 
         {/* <Route  exact path = "/:id" element={<CallPage />}/>
           <Route exact path="/" element={<VidHomePage />}/>
