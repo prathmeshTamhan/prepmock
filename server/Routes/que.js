@@ -104,8 +104,8 @@ router.post('/getRandomQue', async (req, res) => {
   let queBank = []
 
   const mustHaveQue = [
-    {_id: '', difficultyLevel: 'Common', que: 'What are your Strength and Weaknesses?'},
-    {_id: '', difficultyLevel: 'Common', que: 'Introduce Yourself?'},
+    {_id: '', que: 'What are your Strength and Weaknesses?'},
+    {_id: '', que: 'Introduce Yourself?'},
   ]
 
   try {

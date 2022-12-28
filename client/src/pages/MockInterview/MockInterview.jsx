@@ -34,6 +34,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
   const [subject, setSubject] = useState();
   const [diff, setDiff] = useState();
   const queContainer = useRef()
+  const nextBtn = useRef()
   const [seconds, setSeconds] = useState(0);
 
   function starttimer() {
@@ -106,9 +107,6 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
       });
 
 
-
-
-
   }, [])
 
   useEffect(() => {
@@ -118,6 +116,13 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
 
 
   const renderQueComp = async () => {
+
+    if( queBank.length < 1 ){
+      document.getElementById('nextBtn').innerHTML = 'Submit'
+      
+    }else{
+      document.getElementById('nextBtn').innerHTML = 'Next'
+    }
 
     let arr = CurrentQueBank
     let ele = queBank.pop()
@@ -131,7 +136,6 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
       } catch (e) { }
     })
 
-    console.log(queBank)
 
     const root = ReactDOM.createRoot(queContainer.current)
     root.render(
@@ -331,7 +335,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
           <video id="video" autoPlay muted width="720" height="200"> </video>
           {RecordView()}
 
-          <button onClick={() => { renderQueComp() }} >Next</button>
+          <button id='nextBtn' onClick={(e) => { e.target.innerHTML === 'Submit' ? window.location.href = '/feedback' :  renderQueComp() }} >Next</button>
         </div>
 
         <div className="questionContainer border" ref={queContainer} ></div>
