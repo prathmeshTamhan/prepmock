@@ -66,7 +66,7 @@ function ChooseInterview() {
             personality traits and to check various behavioural factors to
             determine interviwee's actual personality.
           </h6>
-          <Button variant="contained" onClick={()=>{navigate('/chooseDomain?interview=hr')}} >Go Ahead</Button>
+          <Button variant="contained" onClick={()=>{navigate('/start?interview=hr&domain=HR')}} >Go Ahead</Button>
         </Item>
       </Stack>
     </div>

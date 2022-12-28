@@ -11,6 +11,7 @@ function Start() {
     CN: "Computer Networks",
     OS: "Opertaing System",
     DBMS: "Database Managment System",
+    HR:"Human Resource"
   }
 
   useEffect(() => {

@@ -36,7 +36,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
   const queContainer = useRef()
   const [seconds, setSeconds] = useState(0);
 
-  function starttimer(){
+  function starttimer() {
     const interval = setInterval(() => {
       setSeconds(seconds => seconds + 1);
     }, 1000);
@@ -71,14 +71,20 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
   useEffect(() => {
 
     startVideo();
+
     let subject = (window.location.href).split('&')[1].split('=')[1];
-    let diff = (window.location.href).split('&')[2].split('=')[1];
+    let diff = null 
+
+    if (subject != "HR") {
+       diff = (window.location.href).split('&')[2].split('=')[1];
+      setDiff(diff)
+    }
     setSubject(subject)
-    setDiff(diff)
+
 
     var data = JSON.stringify({
       "subject": subject,
-      "difficultyLevel": diff.charAt(0).toUpperCase() + diff.slice(1)
+      "difficultyLevel":  diff === null ? diff :  diff.charAt(0).toUpperCase() + diff.slice(1)
     });
 
     var config = {
@@ -100,7 +106,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
       });
 
 
-     
+
 
 
   }, [])
@@ -226,8 +232,8 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
 
     return (
       <div>
-        
-<div>Seconds: {seconds}</div>
+
+        <div>Seconds: {seconds}</div>
         {status && status !== "stopped" && (
           <Text>Screen Recording Status: <span className="videoStatus"> {status && status.toUpperCase()} </span> </Text>
         )}
@@ -324,10 +330,10 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
         <div className="videoRecorder border">
           <video id="video" autoPlay muted width="720" height="200"> </video>
           {RecordView()}
-         
+
           <button onClick={() => { renderQueComp() }} >Next</button>
         </div>
-        
+
         <div className="questionContainer border" ref={queContainer} ></div>
       </div>
     </>

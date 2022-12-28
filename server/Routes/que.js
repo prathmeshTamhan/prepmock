@@ -94,7 +94,12 @@ router.get("/getQue", async (req, res) => {
 router.post('/getRandomQue', async (req, res) => {
 
   const subject = req.body.subject;
-  const difficultyLevel = req.body.difficultyLevel;
+
+  let  difficultyLevel = null
+
+  if( subject !== "HR" ){
+     difficultyLevel = req.body.difficultyLevel;
+  }
 
   let queBank = []
 
@@ -120,7 +125,7 @@ router.post('/getRandomQue', async (req, res) => {
 
     } else if (subject === 'HR') {
 
-      queBank = await HRSchema.find({ que });
+      queBank = await HRSchema.find();
 
     }
 
