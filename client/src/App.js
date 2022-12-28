@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from "./pages/HomePage/HomePage";
 import Login from './pages/Login'
@@ -13,7 +12,7 @@ import Instruction from './pages/Instruction';
 import VidHomePage from './components/HomePage/VidHomePage';
 import CallPage from './components/CallPages/CallPage';
 import No_Match from './components/NoMatch/No_Match';
-
+import Feedback from './pages/Feedback';
 import { setIsLogged } from './States/action-creators/index'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -44,13 +43,13 @@ function App() {
         <Route exact path="/Start" element={<StartTest />} />
         <Route exact path="/Mockinterview" element={<MockInterview emailToSupport={user.userEmail} />} />
         <Route exact path="/instructions" element={<Instruction />} />
-
+        <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/videoConf/:id" element={<CallPage />} />
         <Route exact path="/videoConf" element={<VidHomePage />} />
         <Route path="*" element={<No_Match />} />
 
       </Routes>
-      {/* <Instruction/> */}
+      {/* <Feedback/> */}
     </>
   )
 }

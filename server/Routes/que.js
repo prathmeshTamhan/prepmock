@@ -3,8 +3,6 @@ const express = require("express");
 const router = require("express").Router();
 const app = express();
 const cors = require("cors");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 const { CNSchema, DBMSSchema, OSSchema, HRSchema } = require("../models/que.model");
 
