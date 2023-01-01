@@ -7,7 +7,7 @@ import shortid from "shortid";
 import { useNavigate } from "react-router-dom";
 import{
   faVideo,
-  faKeyboard,
+ 
 }from "@fortawesome/free-solid-svg-icons"
 
 function VidHomePage() {
@@ -35,11 +35,7 @@ function VidHomePage() {
               </button>
             
             <div className='input-block'>
-              <div className='input-section'>
-                <FontAwesomeIcon className="icon-block" icon={faKeyboard}/>
-                <input placeholder='Enter a code or link'/>
-              </div>
-              <button className='btn no bg'>Join</button>
+              <button id="emailbtn" className="btn"><a  href="mailto:mrunaldeshmukh000@gmail.com?&subject=Requesting for Video Conference&body=Hello, I want to schedule a meet on: <Date> at <Time>">Request for Video Conferencing</a></button>
             </div>
           </div>
           </div>
