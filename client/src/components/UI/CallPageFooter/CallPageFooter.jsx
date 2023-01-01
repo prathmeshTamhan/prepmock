@@ -4,8 +4,6 @@ import {
   faVideo,
   faMicrophone,
   faPhone,
-  faAngleUp,
-  faClosedCaptioning,
   faDesktop,
   faMicrophoneSlash,
 } from "@fortawesome/free-solid-svg-icons";
@@ -22,10 +20,7 @@ const CallPageFooter = ({
   return (
     <div className="footer-item">
       <div className="left-item">
-        <div className="icon-block">
-          Meeting details
-          <FontAwesomeIcon className="icon" icon={faAngleUp} />
-        </div>
+        
       </div>
       <div className="center-item">
         <div
@@ -45,10 +40,6 @@ const CallPageFooter = ({
         </div>
       </div>
       <div className="right-item">
-        <div className="icon-block">
-          <FontAwesomeIcon className="icon red" icon={faClosedCaptioning} />
-          <p className="title">Turn on captions</p>
-        </div>
 
         {isPresenting ? (
           <div className="icon-block" onClick={stopScreenShare}>

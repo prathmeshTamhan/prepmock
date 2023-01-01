@@ -15,11 +15,6 @@ function VidHeader() {
         
       <img src={logo} />
     </div>
-    <div className="action-btn">
-      <FontAwesomeIcon className="icon-block" icon={faQuestionCircle} />
-      <FontAwesomeIcon className="icon-block" icon={faExclamationCircle} />
-      <FontAwesomeIcon className="icon-block" icon={faCog} />
-    </div>
   </div>
 
       
