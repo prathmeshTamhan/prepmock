@@ -3,11 +3,14 @@ import {
   faCopy,
   faTimes,
   faUser,
-  faShieldAlt,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import "./MeetingInfo.css";
 
 const MeetingInfo = ({setMeetInfoPopup, url}) => {
+
+  var email= {}
+  var loc = {}
   return (
     <div className="meeting-info-block">
       <div className="meeting-header">
@@ -22,10 +25,24 @@ const MeetingInfo = ({setMeetInfoPopup, url}) => {
           }
         />
       </div>
-      <button className="add-people-btn">
+
+      <button className="add-people-btn" onClick={() =>{
+        email = prompt("Enter Users Email Address", "example@gmail.com");
+        loc  = "mailto:" + email + "?subject=Link for VC&cc=bhargavigawande05@gmail.com&body=Hello, This is your link for Virtual meet: "+ url;
+        document.getElementById('emailbtn').setAttribute("href", loc);
+
+      }}>
+
+
         <FontAwesomeIcon className="icon" icon={faUser} />
         Add Others
       </button>
+
+      <a href="#" className="btn" id="emailbtn"><FontAwesomeIcon
+          className="mailicon"
+          icon={faEnvelope}
+        /></a>
+
       <p className="info-text">
         Or share this meeting link with others you want in the meeting
       </p>
@@ -37,14 +54,6 @@ const MeetingInfo = ({setMeetInfoPopup, url}) => {
           onClick={() => navigator.clipboard.writeText(url)}
         />
       </div>
-      <div className="permission-text">
-        <FontAwesomeIcon className="icon red" icon={faShieldAlt} />
-        <p className="small-text">
-          People who use this meeting link must get your permission before they
-          can join.
-        </p>
-      </div>
-      <p className="small-text">Joined as akshay@gmail.com</p>
     </div>
   );
 };
