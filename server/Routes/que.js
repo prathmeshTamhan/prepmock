@@ -140,9 +140,6 @@ router.post('/getRandomQue', async (req, res) => {
     res.json(e);
   }
 
-  
-
-
 
 })
 

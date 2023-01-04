@@ -9,7 +9,7 @@ function Feature() {
       <h2 id="heading-service" >Our Services</h2>
       <div className="a-container ">     
         <FeatureBox image={featureimage} destination='chooseInterview' title= 'Mock Interview'/>
-        <FeatureBox image={featureimage1} destination='VidHomePage' title='Video Conferencing'/>
+        <FeatureBox image={featureimage1} destination='/vidConf/' title='Video Conferencing'/>
       </div>
     </section>
   );

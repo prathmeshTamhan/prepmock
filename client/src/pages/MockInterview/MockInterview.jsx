@@ -76,7 +76,7 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
     let subject = (window.location.href).split('&')[1].split('=')[1];
     let diff = null 
 
-    if (subject != "HR") {
+    if (subject !== "HR") {
        diff = (window.location.href).split('&')[2].split('=')[1];
       setDiff(diff)
     }
@@ -213,10 +213,10 @@ export default function MockInterview({ screen, audio, video, downloadRecordingP
 
       try {
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-          // for IE
+        
           window.navigator.msSaveOrOpenBlob(mediaBlobUrl, pathName);
         } else {
-          // for Chrome
+        
           const link = document.createElement("a");
           console.log(mediaBlobUrl)
           link.href = mediaBlobUrl;

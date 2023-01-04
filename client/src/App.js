@@ -45,8 +45,8 @@ function App() {
         <Route exact path="/instructions" element={<Instruction />} />
         <Route exact path="/feedback" element={<Feedback />} />
         
-        <Route exact path="/videoConf/:id" element={<CallPage />} />
-        <Route exact path="/videoConf" element={<VidHomePage />} />
+        <Route exact path="/vidConf/:id" element={<CallPage />} />
+        <Route exact path="/vidConf/" element={<VidHomePage />} />
         <Route path="*" element={<No_Match />} />
 
       </Routes>

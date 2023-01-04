@@ -16,7 +16,7 @@ function VidHomePage() {
   
   const startCall = () => {
     const uid = shortid.generate();
-    navigate(`/${uid}#init`);
+    navigate(`/vidConf/${uid}#init`);
   };
 
 
