@@ -31,7 +31,5 @@
  ![Picture1](https://user-images.githubusercontent.com/78070870/201520637-ab0cea49-e5b8-4280-853d-773d5794d187.jpg)
 ![Picture2](https://user-images.githubusercontent.com/78070870/201520656-c3f16655-50c4-46d8-b9d0-b63db0af42e8.jpg)
 
-<h1>Process Flow<h1/>
-![Screenshot (699)](https://user-images.githubusercontent.com/78070870/210720519-a30a5d32-0839-4b52-91a6-f7c39fb85fee.png)
 
      
