@@ -14,8 +14,8 @@
     <ul>
         <li>To prepare students for actual interview by providing rel-time feel of interview rounds</li>
         <li>Questions appearing over the screen will be time-bound and real-time expressions will be analyzed.</li>
-        <li>Self-evaluation and using azure services system-generated emails will be sent. </li>
-        <li>one to one video conferencing with mentor</li>
+        <li>Self-evaluation and system-generated emails will be sent. </li>
+        <li>One to one video conferencing with mentor</li>
       </ul></p> 
  <p>   <h1 style="font-size: 14px">Technologies Used</h1>
     <ul>
@@ -25,14 +25,13 @@
         <li>Node js</li>
         <li>APIs</li>
         <li>MongoDB</li>
-        <li>Amazon Web Services</li>
       </ul>
-      <h1>Use Cases<h1/> </p>
-
-
-   
+      <h1>Use Cases<h1/> </p>  
 
  ![Picture1](https://user-images.githubusercontent.com/78070870/201520637-ab0cea49-e5b8-4280-853d-773d5794d187.jpg)
 ![Picture2](https://user-images.githubusercontent.com/78070870/201520656-c3f16655-50c4-46d8-b9d0-b63db0af42e8.jpg)
+
+<h1>Process Flow<h1/>
+![Screenshot (699)](https://user-images.githubusercontent.com/78070870/210720519-a30a5d32-0839-4b52-91a6-f7c39fb85fee.png)
 
      
