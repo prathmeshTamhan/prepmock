@@ -4,8 +4,8 @@
     2. App prepares the user for the actual interview scenario by providing various rounds conducted in an actual interview.</br>
     3. In the mock interview service: the user needs to select the interview type first: HR or Technical.</br>
     4. After selecting interview, user need to select technical domain(cn,DBMS,os) and level(easy,medium,hard)</br>
-    5. Automated questions appear over the screen, the user need to answer those, and 1 min video of each question is recorded.</br>
-    6. While recording real-time expression of a user is analyzed and after completion answer links to all asked questions are provided at the end.</br>
+    5. Questions appear over the screen, the user need to answer those, and 1 min video of each question is recorded.</br>
+    6. While recording real-time expression of a user is analyzed (done using npm libraries) and after completion answer links to all asked questions are provided at the end.</br>
     7. Those videos are sent in the form of a downloadable link to users' mail where one can forward that to his mentor or can do self-evaluation </br>
     8. In video conferencing, the user need to select any one of the mentors and send him a request</br>
     9. Real-time video conferencing can be conducted between mentor and user or interview can also be conducted </br>
